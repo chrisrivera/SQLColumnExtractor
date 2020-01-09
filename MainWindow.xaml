@@ -1,0 +1,60 @@
+﻿<Window x:Class="ColumnExtracter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColumnExtracter"
+        mc:Ignorable="d"
+        Title="Extractor" Height="400" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="label" Content="Select SQL File:" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+        
+        <TextBox x:Name="tbFilePath" Height="25" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" 
+                 Margin="5,5,5,5" IsReadOnly="True" Text="" MinWidth="625" VerticalAlignment="Center"/>
+        
+        <Button x:Name="btnOpenFile" Content="..." HorizontalAlignment="Left" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"  Width="26" Click="BtnOpenFile_Click"/>
+
+        <TextBox x:Name="txtResults" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Background="AliceBlue"
+                   Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="2, 2, 2, 2"
+                   TextWrapping="Wrap" Text="">
+            <TextBox.Effect>
+                <DropShadowEffect ShadowDepth="4"
+                          Direction="330"
+                          Color="Black"
+                          Opacity="0.5"
+                          BlurRadius="4"
+                           />
+            </TextBox.Effect>
+            <TextBox.FocusVisualStyle>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.FocusVisualStyle>
+        </TextBox>
+
+
+        <Button x:Name="btnExtract" Content="Extract" HorizontalAlignment="Left" 
+                Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Height="25" Width="75" Click="BtnExtract_Click"/>
+
+    </Grid>
+</Window>
+
+    
